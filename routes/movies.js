@@ -40,7 +40,7 @@ movieRoutes.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
-// Getting Movies From DB
+// Getting All Movies From DB
 movieRoutes.get("/", async (req, res) => {
   try {
     let movies = await Movies.find({ deleted: false });
@@ -50,6 +50,7 @@ movieRoutes.get("/", async (req, res) => {
   }
 });
 
+// Getting single Movies From DB
 movieRoutes.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
