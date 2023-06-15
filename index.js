@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const dbHelper = require("./config/db.js");
+const logger = require("./controller/logger.js");
 const dotenv = require("dotenv");
 const movieRoutes = require("./routes/movies.js");
 const prt = 5000;
@@ -13,5 +14,5 @@ app.use(express.json());
 app.use(movieRoutes);
 
 app.listen(prt, () => {
-  console.log("Server is running");
+  logger.movieLogger.log("info", `Server is running on Port: ${prt}`);
 });
